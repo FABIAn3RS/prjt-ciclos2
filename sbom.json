@@ -1,0 +1,170 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:3ad21ad3-aaed-4273-bea5-d9d6fb87568e",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-11-19T05:29:45.153591+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "group": "CycloneDX",
+          "name": "cyclonedx-py",
+          "version": "8.0.1",
+          "description": "CycloneDX Software Bill of Materials (SBOM) generator for Python projects and environments",
+          "licenses": [
+            {
+              "license": {
+                "id": "Apache-2.0",
+                "acknowledgement": "declared"
+              }
+            }
+          ],
+          "externalReferences": [
+            {
+              "type": "website",
+              "url": "https://github.com/CycloneDX/cyclonedx-python/#readme"
+            },
+            {
+              "type": "issue-tracker",
+              "url": "https://github.com/CycloneDX/cyclonedx-python/issues"
+            },
+            {
+              "type": "vcs",
+              "url": "https://github.com/CycloneDX/cyclonedx-python/"
+            },
+            {
+              "type": "documentation",
+              "url": "https://cyclonedx-bom-tool.readthedocs.io/"
+            },
+            {
+              "type": "release-notes",
+              "url": "https://github.com/CycloneDX/cyclonedx-python/blob/main/CHANGELOG.md"
+            },
+            {
+              "type": "build-system",
+              "url": "https://github.com/CycloneDX/cyclonedx-python/actions"
+            },
+            {
+              "type": "license",
+              "url": "https://github.com/CycloneDX/cyclonedx-python/blob/main/LICENSE"
+            },
+            {
+              "type": "distribution",
+              "url": "https://pypi.org/project/cyclonedx-bom/"
+            }
+          ]
+        },
+        {
+          "type": "library",
+          "group": "CycloneDX",
+          "name": "cyclonedx-python-lib",
+          "version": "11.12.0",
+          "description": "Python library for CycloneDX",
+          "licenses": [
+            {
+              "license": {
+                "id": "Apache-2.0",
+                "acknowledgement": "declared"
+              }
+            }
+          ],
+          "externalReferences": [
+            {
+              "type": "website",
+              "url": "https://github.com/CycloneDX/cyclonedx-python-lib/#readme"
+            },
+            {
+              "type": "issue-tracker",
+              "url": "https://github.com/CycloneDX/cyclonedx-python-lib/issues"
+            },
+            {
+              "type": "vcs",
+              "url": "https://github.com/CycloneDX/cyclonedx-python-lib"
+            },
+            {
+              "type": "documentation",
+              "url": "https://cyclonedx-python-library.readthedocs.io/"
+            },
+            {
+              "type": "release-notes",
+              "url": "https://github.com/CycloneDX/cyclonedx-python-lib/blob/main/CHANGELOG.md"
+            },
+            {
+              "type": "build-system",
+              "url": "https://github.com/CycloneDX/cyclonedx-python-lib/actions"
+            },
+            {
+              "type": "license",
+              "url": "https://github.com/CycloneDX/cyclonedx-python-lib/blob/main/LICENSE"
+            },
+            {
+              "type": "distribution",
+              "url": "https://pypi.org/project/cyclonedx-python-lib/"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "name": "Flask",
+      "version": "2.2.2",
+      "description": "requirements line 1: Flask==2.2.2",
+      "purl": "pkg:pypi/flask@2.2.2",
+      "bom-ref": "requirements-L1",
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://pypi.org/simple/Flask/",
+          "comment": "implicit dist url"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "Werkzeug",
+      "version": "2.2.2",
+      "description": "requirements line 2: Werkzeug==2.2.2",
+      "purl": "pkg:pypi/werkzeug@2.2.2",
+      "bom-ref": "requirements-L2",
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://pypi.org/simple/Werkzeug/",
+          "comment": "implicit dist url"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "requests",
+      "version": "2.20.0",
+      "description": "requirements line 3: requests==2.20.0",
+      "purl": "pkg:pypi/requests@2.20.0",
+      "bom-ref": "requirements-L3",
+      "externalReferences": [
+        {
+          "type": "distribution",
+          "url": "https://pypi.org/simple/requests/",
+          "comment": "implicit dist url"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "requirements-L1"
+    },
+    {
+      "ref": "requirements-L2"
+    },
+    {
+      "ref": "requirements-L3"
+    }
+  ]
+}
