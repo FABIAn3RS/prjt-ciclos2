@@ -29,7 +29,7 @@ La API escucha solo en `http://127.0.0.1:5000`. Al iniciar crea `practica.db` co
 ## Endpoints
 
 - `GET /api/health` — comprueba que la API está activa.
-- `GET /api/profile` — requiere el encabezado `X-API-Key` con el valor de demostración que aparece en `app.py`.
+- `GET /api/profile` — requiere el encabezado `X-API-Key` con el valor configurado en la variable de entorno `API_KEY`.
 - `POST /api/login` — recibe JSON con `username` y `password`; usa `admin` / `AdminDemo123!` o `estudiante` / `Practica123!` para el caso válido.
 
 Ejemplo de cuerpo para `POST /api/login`:
@@ -48,7 +48,7 @@ bandit -r app.py -f txt
 pip-audit -r requirements.txt
 ```
 
-La práctica consiste en registrar los hallazgos, corregirlos (consultas parametrizadas, secretos desde variables de entorno y actualización de dependencias) y volver a ejecutar los análisis para comparar los resultados. No uses los ejemplos de inyección contra servicios externos.
+La práctica consiste en registrar los hallazgos, corregirlos (consultas parametrizadas, secretos desde variables de entorno y actualización de dependencias) y volver a ejecutar los análisis para comparar los resultados. Define `API_KEY` en el entorno antes de iniciar la aplicación si necesitas usar `/api/profile`. No uses los ejemplos de inyección contra servicios externos.
 
 
 ## Definition of Done
