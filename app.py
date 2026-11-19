@@ -1,11 +1,12 @@
 """API de laboratorio con vulnerabilidades intencionales. Solo para uso local."""
 from flask import Flask, jsonify, request
+import os
 import sqlite3
 from pathlib import Path
 
 app = Flask(__name__)
 DB_PATH = Path(__file__).with_name("practica.db")
-API_KEY = "API_KEY_DEMO_NO_USAR_EN_PRODUCCION"
+API_KEY = os.environ.get("API_KEY")
 
 
 def init_db():
@@ -28,8 +29,7 @@ def health():
 
 @app.get("/api/profile")
 def profile():
-    # Vulnerabilidad intencional: secreto fijo en el código.
-    if request.headers.get("X-API-Key") != API_KEY:
+    if not API_KEY or request.headers.get("X-API-Key") != API_KEY:
         return jsonify(error="No autorizado"), 401
     return jsonify(user="admin", message="Acceso de demostración")
 
@@ -40,16 +40,11 @@ def login():
     username = data.get("username", "")
     password = data.get("password", "")
 
-    # Vulnerabilidad intencional: SQL concatenado con datos del usuario.
-    query = (
-        "SELECT id, username FROM users WHERE username = '"
-        + username
-        + "' AND password = '"
-        + password
-        + "'"
-    )
     with sqlite3.connect(DB_PATH) as conn:
-        row = conn.execute(query).fetchone()
+        row = conn.execute(
+            "SELECT id, username FROM users WHERE username = ? AND password = ?",
+            (username, password),
+        ).fetchone()
 
     if row:
         return jsonify(message="Login correcto", user={"id": row[0], "username": row[1]})
